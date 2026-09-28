@@ -9,36 +9,6 @@ var multer = require('multer');
 var bcrypt = require('bcryptjs')
 
 
-// const { v2: cloudinary } = require('cloudinary');
-// const { CloudinaryStorage } = require('multer-storage-cloudinary');
-
-// cloudinary.config({
-//   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-//   api_key: process.env.CLOUDINARY_API_KEY,
-//   api_secret: process.env.CLOUDINARY_SECRET_KEY,
-// });
-
-// Define Cloudinary storage engine directly
-// const storage = new CloudinaryStorage({
-//   cloudinary: cloudinary,
-//   params: {
-//     folder: 'cloud2501a', // Target folder specified here
-//     allowed_formats: ['jpg', 'png', 'jpeg', 'webp'],
-//   },
-// });
-
-// const upload = multer({ 
-//   storage: storage,
-//   limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
-// });
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, 'uploads/');
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, file.originalname);
-//     }
-// });
 
 
 var myAuth = require('../middleware/mymiddleware');
@@ -143,17 +113,6 @@ router.put('/updateuser',async (req,res) => {
     }
 })
 
-
-
-
-
-
-// router.post('/uploadfile',upload.single('file'),async (req,res) => {
-//     var filepath = req.file.path;
-//     await db.collection('users').insertOne({"FilePath":filepath})
-//     res.json({"FilePath":filepath})
-
-// })
 
 
 router.post('/hashpassword',async(req,res) => {
